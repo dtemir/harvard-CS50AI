@@ -73,6 +73,8 @@ def result(board, action):
     else:
         board_copy[y][x] = player(board)
 
+    return board_copy
+
 
 def winner(board):
     """
@@ -125,3 +127,53 @@ def minimax(board):
     """
     if terminal(board):
         return None
+
+    if player(board) == X:
+        score = -math.inf
+        action_to_take = None
+
+        for action in actions(board):
+            min_val = minvalue(result(board, action))
+
+            if min_val > score:
+                score = min_val
+                action_to_take = action
+
+        return action_to_take
+
+    elif player(board) == O:
+        score = math.inf
+        action_to_take = None
+        
+        for action in actions(board):
+            max_val = maxvalue(result(board, action))
+            
+            if max_val < score:
+                score = max_val
+                action_to_take = action
+                
+        return action_to_take
+
+
+def minvalue(board):
+
+    if terminal(board):
+        return utility(board)
+
+    max_value = math.inf
+    for action in actions(board):
+        max_value = min(max_value, maxvalue(result(board, action)))
+
+    return max_value
+
+def maxvalue(board):
+
+    if terminal(board):
+        return utility(board)
+
+    min_val = -math.inf
+    for action in actions(board):
+        min_val = max(min_val, minvalue(result(board, action)))
+
+    return min_val
+
