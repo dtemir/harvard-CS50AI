@@ -22,7 +22,7 @@ I do so to keep a thorough documentation on concepts that each assignment employ
 * My solution is based on Minimax decision rule which perfectly works for games that clash two opponents against each other
     * The algorithm is all about calculating the best utility out of all possible solutions 
     The algorithm relies on calculating prospective steps that the opponent (AI) might take
-* The tictactoe.py file (where the solution lies) consists of many minor functions that construct the game of Tic-Tac-Toe 
-Thus, I recommend paying better attention to the last function called <i>minimax</i>.
-    * The function determines which side AI plays for, and then finds the best optimal score that the player can get
+* The tictactoe.py file (where the solution lies) consists of many minor functions that construct the game of Tic-Tac-Toe.
+I recommend paying better attention to the last function called <i>minimax</i> instead
+    * The function determines which side AI plays for, and then finds the best optimal score that the AI can get
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=jgmtzfJTEgY&t=1s&ab_channel=DamirTemir).
