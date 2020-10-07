@@ -32,7 +32,7 @@ def player(board):
             elif x_axis == O:
                 Os += 1
 
-    if Xs - Os == 0:
+    if Xs <= Os:
         return X
     else:
         return O
@@ -47,7 +47,7 @@ def actions(board):
 
     for y, y_axis in enumerate(board):
         for x, x_axis in enumerate(y_axis):
-            if x_axis != X and x_axis != O:
+            if x_axis == EMPTY:
                 possible_actions.add((y, x))
 
     return possible_actions
@@ -61,47 +61,67 @@ def result(board, action):
     if len(action) != 2:
         raise Exception("result function: incorrect action")
 
-    if action[0] < 0 or action[0] > 2 or action[1] < 0 or action > 2:
+    if action[0] < 0 or action[0] > 2 or action[1] < 0 or action[1] > 2:
         raise Exception("result function: incorrect action value")
 
     y, x = action[0], action[1]
 
     board_copy = copy.deepcopy(board)
 
-    if player(board) == X:
-        board_copy[y][x] = X
+    if board_copy[y][x] != EMPTY:
+        raise Exception("suggested action has already been taken")
     else:
-        board_copy[y][x] = O
+        board_copy[y][x] = player(board)
 
 
 def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
+    # Since the board is always 3x3, I believe this approach is reasonable
+    for y in range(3):
+        # Check horizontal lines
+        if (board[y][0] == board[y][1] == board[y][2]) and (board[y][0] != EMPTY):
+            return board[y][0]
+        # check vertical lines
+        if (board[0][y] == board[1][y] == board[2][y]) and (board[0][y] != EMPTY):
+            return board[0][y]
 
-    for y, y_axis in enumerate(board):
-        for x, x_axis in enumerate(y_axis):
-            pass
+    # Check diagonals
+    if (board[0][0] == board[1][1] == board[2][2]) or (board[0][2] == board[1][1] == board[2][0]) \
+            and board[1][1] != EMPTY:
+        return board[1][1]
 
-    raise NotImplementedError
+    return None
 
 
 def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-    raise NotImplementedError
+    if winner(board) == X or winner(board) == O:
+        return True
+    elif EMPTY not in board[0] and EMPTY not in board[1] and EMPTY not in board[2]:
+        return True
+    else:
+        return False
 
 
 def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
-    raise NotImplementedError
+    if winner(board) == X:
+        return 1
+    elif winner(board) == O:
+        return -1
+    else:
+        return 0
 
 
 def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    raise NotImplementedError
+    if terminal(board):
+        return None
