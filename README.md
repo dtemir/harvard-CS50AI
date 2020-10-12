@@ -20,7 +20,7 @@ I do so to keep a thorough documentation on concepts that each assignment employ
 * The assignment is about writing an AI algorithm to play Tic-Tac-Toe optimally
 * The pygame module provided inside the runner.py file was outside the scope of the project
 * My solution is based on Minimax decision rule which perfectly works for games that clash two opponents against each other
-    * The algorithm is all about calculating the best utility out of all possible solutions 
+    * The algorithm is all about calculating the best utility out of all possible solutions. 
     The algorithm relies on calculating prospective steps that the opponent (AI) might take
 * The tictactoe.py file (where the solution lies) consists of many minor functions that construct the game of Tic-Tac-Toe.
 I recommend paying better attention to the last function called <i>minimax</i> instead
