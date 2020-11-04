@@ -10,39 +10,61 @@ CKnight = Symbol("C is a Knight")
 CKnave = Symbol("C is a Knave")
 
 # Puzzle 0
-# A says "I am both a knight and a knave."
 knowledge0 = And(
+    # A is either a knight or a knave
     Or(AKnave, AKnight),
     Not(And(AKnave, AKnight)),
-    Implication(AKnight, Not(AKnave)),
-    Implication(AKnave, Not(AKnight)),
+
+    # A says "I am both a knight and a knave."
     Biconditional(AKnight, And(AKnight, AKnave))
 )
 
-print(knowledge0.formula())
-
 
 # Puzzle 1
-# A says "We are both knaves."
-# B says nothing.
 knowledge1 = And(
-    # TODO
+    # A and B are either knights or knaves
+    Or(AKnave, AKnight),
+    Or(BKnave, BKnight),
+    Not(And(AKnave, AKnight)),
+    Not(And(BKnave, BKnight)),
+
+    # A says "We are both knaves." (Must be Knave)
+    # B says nothing. (Must be Knight)
+    Biconditional(AKnight, And(AKnave, BKnave)),
 )
 
 # Puzzle 2
-# A says "We are the same kind."
-# B says "We are of different kinds."
 knowledge2 = And(
-    # TODO
+    # A and B are either knights or knaves
+    Or(AKnave, AKnight),
+    Or(BKnave, BKnight),
+    Not(And(AKnave, AKnight)),
+    Not(And(BKnave, BKnight)),
+
+    # A says "We are the same kind."
+    # B says "We are of different kinds."
+    Biconditional(AKnight, Or(And(AKnave, BKnave), And(AKnight, BKnight))),
+    Biconditional(BKnight, Or(And(AKnave, BKnight), And(AKnight, BKnave))),
 )
 
 # Puzzle 3
-# A says either "I am a knight." or "I am a knave.", but you don't know which.
-# B says "A said 'I am a knave'."
-# B says "C is a knave."
-# C says "A is a knight."
 knowledge3 = And(
-    # TODO
+    # A, B, C are either knights or knaves
+    Or(AKnave, AKnight),
+    Or(BKnave, BKnight),
+    Or(CKnave, CKnight),
+    Not(And(AKnave, AKnight)),
+    Not(And(BKnave, BKnight)),
+    Not(And(CKnave, CKnight)),
+
+    # A says either "I am a knight." or "I am a knave.", but you don't know which.
+    # B says "A said 'I am a knave'."
+    # B says "C is a knave."
+    # C says "A is a knight."
+    Biconditional(Or(AKnight, AKnave), Or(AKnight, AKnave)),
+    Biconditional(BKnight, Biconditional(AKnight, BKnave)),
+    Biconditional(BKnight, CKnave),
+    Biconditional(CKnight, AKnight)
 )
 
 
