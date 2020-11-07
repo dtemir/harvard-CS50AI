@@ -62,7 +62,7 @@ knowledge3 = And(
     # B says "C is a knave."
     # C says "A is a knight."
     Biconditional(Or(AKnight, AKnave), Or(AKnight, AKnave)),
-    Biconditional(BKnight, Biconditional(AKnight, BKnave)),
+    Biconditional(BKnight, Biconditional(AKnight, AKnave)),
     Biconditional(BKnight, CKnave),
     Biconditional(CKnight, AKnight)
 )
