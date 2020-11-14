@@ -134,6 +134,7 @@ class Sentence():
         """
         if cell in self.cells:
             self.cells.remove(cell)
+            self.count -= 1
             # Return 1 to update the counter of mines in MinesweeperAI
             return 1
         return 0
@@ -219,7 +220,7 @@ class MinesweeperAI():
         neighboring_cells = set()
         for y in range(max(i - 1, 0), min(i + 2, self.height)):
             for x in range(max(j - 1, 0),  min(j + 2, self.width)):
-                if cell != (y, x):
+                if (i, j) != (y, x):
                     neighboring_cells.add((y, x))
 
         self.knowledge.append(Sentence(neighboring_cells, count))
@@ -271,7 +272,7 @@ class MinesweeperAI():
 
     def mark_safe_or_mines(self):
 
-        times_to_iterate = 0
+        times_to_iterate = 1
         while times_to_iterate:
             times_to_iterate = 0
             for sentence in self.knowledge:
@@ -292,22 +293,24 @@ class MinesweeperAI():
         inferences = []
         empty = []
 
-        # Ensure that there are no empty sentences in self.knowledge
-        for sentence in self.knowledge:
-            if len(sentence.cells) == 0:
-                empty.append(sentence)
-        self.knowledge = [x for x in self.knowledge if x not in empty]
-
         for sentence_1 in self.knowledge:
+            if sentence_1.cells == set():
+                empty.append(sentence_1)
+                continue
             for sentence_2 in self.knowledge:
-                if sentence_1 is not sentence_2:
+                if sentence_2.cells == set():
+                    empty.append(sentence_2)
+                    continue
+                if sentence_1 != sentence_2:
                     if sentence_2.cells.issubset(sentence_1.cells):
-                        new_set = sentence_2.cells.difference(sentence_1.cells)
-                        new_count = sentence_2.count - sentence_1.count
+                        new_set = sentence_1.cells.difference(sentence_2.cells)
+                        new_count = sentence_1.count - sentence_2.count
                         new_sentence = Sentence(new_set, new_count)
 
                         # Check is new sentence is already in knowledge base
                         if new_sentence not in self.knowledge:
                             inferences.append(new_sentence)
+
+        self.knowledge = [x for x in self.knowledge if x not in empty]
 
         return inferences
