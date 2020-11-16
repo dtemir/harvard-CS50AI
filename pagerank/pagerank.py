@@ -57,7 +57,37 @@ def transition_model(corpus, page, damping_factor):
     linked to by `page`. With probability `1 - damping_factor`, choose
     a link at random chosen from all pages in the corpus.
     """
-    raise NotImplementedError
+    # Store probability of each link
+    prob_distribution = {}
+    # Pages to which given page has links
+    potential_pages = corpus[page]
+
+    # If page has no outgoing links, return a probability distribution that chooses randomly between all pages
+    if len(potential_pages) == 0:
+        prob = 1 / len(corpus)
+        for corpus_page in corpus:
+            prob_distribution[corpus_page] = prob
+
+        return prob_distribution
+
+    # Damping probability (the probability that surfer visits a link)
+    damping_prob = damping_factor / len(potential_pages)
+    # Random damping probability (the probability that surfer visits a link regardless whether given page has access
+    # to it)
+    damping_prob_random = (1 - damping_factor) / len(corpus)
+
+    # Fill out probability distribution with damping probability
+    for potential_page in potential_pages:
+        prob_distribution[potential_page] = damping_prob
+
+    # Fill out probability distribution with random damping probability
+    for corpus_page in corpus:
+        if corpus_page in potential_pages:
+            prob_distribution[corpus_page] += damping_prob_random
+        else:
+            prob_distribution[corpus_page] = damping_prob_random
+
+    return prob_distribution
 
 
 def sample_pagerank(corpus, damping_factor, n):
@@ -69,7 +99,37 @@ def sample_pagerank(corpus, damping_factor, n):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
-    raise NotImplementedError
+    pagerank = {}
+
+    for corpus_page in corpus:
+        pagerank[corpus_page] = 0
+
+    next_page = random.choice(list(corpus))
+
+    for i in range(n - 1):
+        model = transition_model(corpus, next_page, damping_factor)
+        probabilities = []
+
+        for k in model.keys():
+            probabilities.append(model[k])
+
+        next_page = random.choices(list(corpus), weights=probabilities, k=1).pop()
+
+        if next_page in pagerank:
+            pagerank[next_page] += 1
+        else:
+            pagerank[next_page] = 1
+
+    for page in pagerank:
+        pagerank[page] = pagerank[page] / n
+
+    # sum = 0
+    # for page in pagerank:
+    #     sum += pagerank[page]
+    #
+    # print(sum)
+
+    return pagerank
 
 
 def iterate_pagerank(corpus, damping_factor):
@@ -81,7 +141,10 @@ def iterate_pagerank(corpus, damping_factor):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
-    raise NotImplementedError
+    pagerank = {}
+
+    for corpus_page in corpus:
+        pagerank[corpus_page] = 1 / len(corpus)
 
 
 if __name__ == "__main__":
