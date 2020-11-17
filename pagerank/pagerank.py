@@ -2,6 +2,7 @@ import os
 import random
 import re
 import sys
+from copy import deepcopy
 
 DAMPING = 0.85
 SAMPLES = 10000
@@ -99,35 +100,29 @@ def sample_pagerank(corpus, damping_factor, n):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
+    # Dictionary to store pagerank
     pagerank = {}
 
-    for corpus_page in corpus:
-        pagerank[corpus_page] = 0
-
+    # Choosing page at random
     next_page = random.choice(list(corpus))
 
+    # Iterating over the given number of samples
     for i in range(n - 1):
+        # Each time create a next transition model with probabilities of pages
         model = transition_model(corpus, next_page, damping_factor)
-        probabilities = []
 
-        for k in model.keys():
-            probabilities.append(model[k])
+        # Choose a page at random considering probabilities given by transition model
+        next_page = random.choices(list(model), weights=model.values(), k=1).pop()
 
-        next_page = random.choices(list(corpus), weights=probabilities, k=1).pop()
-
+        # Fill out pagerank with the number of times surfer lands on particular page
         if next_page in pagerank:
             pagerank[next_page] += 1
         else:
             pagerank[next_page] = 1
 
+    # Divide the number of times surfer landed at one page by the sample size
     for page in pagerank:
         pagerank[page] = pagerank[page] / n
-
-    # sum = 0
-    # for page in pagerank:
-    #     sum += pagerank[page]
-    #
-    # print(sum)
 
     return pagerank
 
@@ -141,10 +136,62 @@ def iterate_pagerank(corpus, damping_factor):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
+    # Dictionary to store pagerank
     pagerank = {}
 
-    for corpus_page in corpus:
-        pagerank[corpus_page] = 1 / len(corpus)
+    # Iterate over all pages and assign initial probability to pagerank
+    for page in corpus:
+        pagerank[page] = 1 / len(corpus)
+
+    # Keep boolean to know when the results start converging (difference no greater than 0.001)
+    converged = False
+    while not converged:
+        # Copy pagerank
+        pagerank_copy = {k: v for k, v in pagerank.items()}
+        # Keep difference to find out whether results converge and we can stop
+        pagerank_diff = {}
+
+        # Iterate over each page in corpus
+        for page in corpus.keys():
+            # Keep count of current pagerank
+            probability = 0
+
+            # Summation: PR(i) / NumLinks(i)
+            for page_i, pages in corpus.items():
+                # Check if current page has a link to our page p
+                if page in pages:
+                    # Use previous pagerank for summation
+                    probability += pagerank_copy[page_i] / len(pages)
+                # In case current page has no links to other pages
+                elif len(pages) == 0:
+                    # Interpret as having one link for every page
+                    probability += 1 / len(corpus)
+
+            # Calculate the rest of the formula given in task background for iterative algorithm
+            pagerank[page] = (1 - damping_factor) / len(corpus) + (damping_factor * probability)
+
+            # Store the difference between previous pagerank and current to know when to stop
+            pagerank_diff[page] = abs(pagerank_copy[page] - pagerank[page])
+            # print(pagerank_diff)
+
+        # Check if we can leave the while loop by making sure if there is no gap of more than 0.001 between
+        # current pagerank and previous pagerank
+        converged = True
+        for page in pagerank_diff:
+            if pagerank_diff[page] > 0.001:
+                converged = False
+
+    # Important: normalize.
+    # Pageranks must sum up to 1. In case with corpus2, they do not sum up and thus need to be normalized
+    # by dividing each pagerank with their overall sum
+    sum_pagerank = 0
+    for k in pagerank:
+        sum_pagerank += pagerank[k]
+
+    for k in pagerank:
+        pagerank[k] = pagerank[k] / sum_pagerank
+
+    return pagerank
 
 
 if __name__ == "__main__":
