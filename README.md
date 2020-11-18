@@ -5,7 +5,7 @@ with the [CS50 Artificial Intelligence class](https://cs50.harvard.edu/ai/2020/)
 Following is just a little description about each of the assignments.
 I do so to keep a thorough documentation on concepts that each assignment employs.
 
-<big>Week 0: Search</big>
+<h2>Week 0: Search</h2>
 
 **Degrees (BFS)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/degrees):
     
@@ -27,7 +27,7 @@ I recommend paying better attention to the last function called <i>minimax</i>
     * The function determines which side AI plays for, and then finds the best optimal score that the AI can get
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=jgmtzfJTEgY&ab_channel=DamirTemir).
 
-<big>Week 1: Knowledge</big>
+<h2>Week 1: Knowledge</h2>
 
 **Knights (Propositional Logic & Inference)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/knights):
 
@@ -46,3 +46,7 @@ I recommend paying better attention to the last function called <i>minimax</i>
 * By knowing that a set is a subset of another set, we can tell they share the number of mines, which means that we can eliminate potential cells from the set (which is inference)
 * It is important to keep trying to derive inferences from the available knowledge every time something new is given or found
 * You can fine the demonstration of how it works [here](https://youtu.be/8DDpr0TY8Pw).
+
+<h2> Week 2: Uncertainty</h2>
+
+**Pagerank (Probability)** [see directory] ()
