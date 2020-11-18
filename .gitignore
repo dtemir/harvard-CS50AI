@@ -1,3 +1,4 @@
 tictactoe/OpenSans-Regular.ttf
 tictactoe/requirements.txt
-**/__pycache__
+**/__pycache__/
+.idea
