@@ -18,11 +18,11 @@ I do so to keep a thorough documentation on concepts that each assignment employ
 **Tic-Tac-Toe (Minimax)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/tictactoe):
 
 * The assignment is about writing an AI algorithm to play Tic-Tac-Toe optimally
-* The pygame module provided inside the runner.py file was outside the scope of the project
+* The pygame module provided inside the <code>runner.py</code> file was outside the scope of the project
 * The solution is based on Minimax decision rule which perfectly works for games that clash two opponents against each other
     * The algorithm is all about calculating the best utility out of all possible solutions. 
     * The algorithm relies on calculating prospective steps that the opponent might take
-* The tictactoe.py file (where the solution lies) consists of many minor functions that construct the game of Tic-Tac-Toe (finding out who is a winner, etc.)
+* The <code>tictactoe.py</code> file (where the solution lies) consists of many minor functions that construct the game of Tic-Tac-Toe (finding out who is a winner, etc.)
 I recommend paying better attention to the last function called <i>minimax</i>
     * The function determines which side AI plays for, and then finds the best optimal score that the AI can get
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=jgmtzfJTEgY&ab_channel=DamirTemir).
@@ -32,7 +32,7 @@ I recommend paying better attention to the last function called <i>minimax</i>
 **Knights (Propositional Logic & Inference)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/knights):
 
 * The assignment is about solving puzzles using propositional logic
-* Using given module logic.py, the puzzles first need to be presented
+* Using given module <code>logic.py</code>, the puzzles first need to be presented
    * We first need to define base knowledge in each of the knowledge bases, such as that knaves only lie and knight only tell the truth
    * Then, given the statements of symbols (e.g. Symbol A says "We're both knaves" and Symbol B says nothing), we need to represent them using logic
         *  This case involves using biconditionals to show that if A is a knight, his words are true and if not, they are lies
@@ -49,4 +49,10 @@ I recommend paying better attention to the last function called <i>minimax</i>
 
 <h2> Week 2: Uncertainty</h2>
 
-**Pagerank (Probability)** [see directory] ()
+**Pagerank (Probability)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/pagerank):
+
+* The assignment is about using probability to determine pagerank for html pages.
+* The <code>pagerank.py</code> has two functions: <code>sample_pagerank</code> and <code>iterative_pagerank</code>
+    * Random Surfer Model (<code>sample_pagerank</code>) is about using transition models to represent a state in Markov Chain and choose among its links to pages at random.
+    * Iterative Algorithm (<code>iterative_pagerank</code>) is about using a recursive mathematical expression to see what the pagerank would be.
+* It is important to note that normalization of the resulted vector is required in <code>iterative_pagerank</code> as its overall probability might result in more than 1. 
