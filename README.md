@@ -49,10 +49,20 @@ I recommend paying better attention to the last function called <i>minimax</i>
 
 <h2> Week 2: Uncertainty</h2>
 
-**Pagerank (Probability)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/pagerank):
+**Pagerank (Markov Models)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/pagerank):
 
-* The assignment is about using probability to determine pagerank for html pages.
+* The assignment is about using probability to determine pagerank for html pages
 * The <code>pagerank.py</code> has two functions: <code>sample_pagerank</code> and <code>iterative_pagerank</code>
-    * Random Surfer Model (<code>sample_pagerank</code>) is about using transition models to represent a state in Markov Chain and choose among its links to pages at random.
-    * Iterative Algorithm (<code>iterative_pagerank</code>) is about using a recursive mathematical expression to see what the pagerank would be.
-* It is important to note that normalization of the resulted vector is required in <code>iterative_pagerank</code> as its overall probability might result in more than 1. 
+    * Random Surfer Model (<code>sample_pagerank</code>) is about using transition models to represent a state in Markov Chain and choose among its links to pages at random
+    * Iterative Algorithm (<code>iterative_pagerank</code>) is about using a recursive mathematical expression to see what the pagerank would be
+* It is important to note that normalization of all the resulted vectors is required in <code>iterative_pagerank</code> as some overall probability might result in more than 1
+* You can fine the demonstration of how it works [here](https://www.youtube.com/watch?v=LxuCrbKrNvs).
+
+**Heredity (Bayesian Networks)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/heredity):
+* The assignment is about using a bayesian network that models the relationships of getting a certain gene and make inferences about a population
+* We are given information about people, who their parents are, and whether they have a trait that is caused by a gene. The AI then infers the probability distribution for each person
+* The <code>heredity.py</code> has base probabilities for people who do not have parents listed.
+Using those base probabilities we can make inferences for their children based on the chances they inherited zero genes, one gene, or two genes and whether they exhibit a trait
+* You can fine the demonstration of how it works [here](https://www.youtube.com/watch?v=vHW-K2fDl-Y).
+
+
