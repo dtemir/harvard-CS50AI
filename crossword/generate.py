@@ -1,4 +1,5 @@
 import sys
+from collections import deque
 
 from crossword import *
 
@@ -99,7 +100,13 @@ class CrosswordCreator():
         (Remove any values that are inconsistent with a variable's unary
          constraints; in this case, the length of the word.)
         """
-        raise NotImplementedError
+        for variable, words in self.domains.items():  # Iterate over all variables and their potential words
+            words_to_remove = set()  # Set to store words that will be removed from the variable's potential words
+            for word in words:
+                if len(word) != variable.length:  # If word is not of the same length as the variable can hold, delete
+                    words_to_remove.add(word)
+            # Subtract the words that are unsuitable from variable's domain
+            self.domains[variable] = words.difference(words_to_remove)
 
     def revise(self, x, y):
         """
@@ -110,7 +117,25 @@ class CrosswordCreator():
         Return True if a revision was made to the domain of `x`; return
         False if no revision was made.
         """
-        raise NotImplementedError
+        revised = False
+        overlap = self.crossword.overlaps[x, y]
+
+        if overlap:
+            v1, v2 = overlap
+            xs_to_remove = set()
+            for x_i in self.domains[x]:
+                overlaps = False
+                for y_j in self.domains[y]:
+                    if x_i != y_j and x_i[v1] == y_j[v2]:
+                        overlaps = True
+                        break
+                if not overlaps:
+                    xs_to_remove.add(x_i)
+            if xs_to_remove:
+                self.domains[x] = self.domains[x].difference(xs_to_remove)
+                revised = True
+
+        return revised
 
     def ac3(self, arcs=None):
         """
@@ -121,20 +146,42 @@ class CrosswordCreator():
         Return True if arc consistency is enforced and no domains are empty;
         return False if one or more domains end up empty.
         """
-        raise NotImplementedError
+        if arcs is None:
+            arcs = deque()
+            for v1 in self.crossword.variables:
+                for v2 in self.crossword.neighbors(v1):
+                    arcs.appendleft((v1, v2))
+        else:
+            arcs = deque(arcs)
+        # print(arcs)
+        while arcs:
+            x, y = arcs.pop()
+            if self.revise(x, y):
+                if len(self.domains) == 0:
+                    return False
+                for z in self.crossword.neighbors(x) - {y}:
+                    arcs.appendleft((z, x))
+        return True
 
     def assignment_complete(self, assignment):
         """
         Return True if `assignment` is complete (i.e., assigns a value to each
         crossword variable); return False otherwise.
         """
-        raise NotImplementedError
+        for variable in self.crossword.variables:
+            if variable not in assignment.keys():
+                return False
+            if assignment[variable] not in self.crossword.words:
+                return False
+        return True
 
     def consistent(self, assignment):
         """
         Return True if `assignment` is consistent (i.e., words fit in crossword
         puzzle without conflicting characters); return False otherwise.
         """
+        for k, v in assignment:
+            print(k, v)
         raise NotImplementedError
 
     def order_domain_values(self, var, assignment):
