@@ -14,6 +14,8 @@ I do so to keep a thorough documentation on concepts that each assignment employ
 * The solution is based on Breadth-First Search (BFS) because the task requires the shortest path between nodes
 * To implement the search, I used a Queue-based Frontier. The Frontier is filled with neighboring nodes that share the same parameter(movie)
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=0bksDFskiRM&t=1s&ab_channel=DamirTemir).
+
+![alt text](demo/degrees.gif)
     
 **Tic-Tac-Toe (Minimax)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/tictactoe):
 
@@ -26,6 +28,8 @@ I do so to keep a thorough documentation on concepts that each assignment employ
 I recommend paying better attention to the last function called <i>minimax</i>
     * The function determines which side AI plays for, and then finds the best optimal score that the AI can get
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=jgmtzfJTEgY&ab_channel=DamirTemir).
+
+![tictactoe demo](demo/tictactoe.gif)
 
 <h2>Week 1: Knowledge</h2>
 
