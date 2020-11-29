@@ -49,7 +49,7 @@ I recommend paying better attention to the last function called <i>minimax</i>
 * Each piece of knowledge is represented as a sentence that has a set of cells and a number of mines that the set contains
 * By knowing that a set is a subset of another set, we can tell they share the number of mines, which means that we can eliminate potential cells from the set (which is inference)
 * It is important to keep trying to derive inferences from the available knowledge every time something new is given or found
-* You can fine the demonstration of how it works [here](https://youtu.be/8DDpr0TY8Pw).
+* You can find the demonstration of how it works [here](https://youtu.be/8DDpr0TY8Pw).
 
 <h2> Week 2: Uncertainty</h2>
 
@@ -60,13 +60,24 @@ I recommend paying better attention to the last function called <i>minimax</i>
     * Random Surfer Model (<code>sample_pagerank</code>) is about using transition models to represent a state in Markov Chain and choose among its links to pages at random
     * Iterative Algorithm (<code>iterative_pagerank</code>) is about using a recursive mathematical expression to see what the pagerank would be
 * It is important to note that normalization of all the resulted vectors is required in <code>iterative_pagerank</code> as some overall probability might result in more than 1
-* You can fine the demonstration of how it works [here](https://www.youtube.com/watch?v=LxuCrbKrNvs).
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=LxuCrbKrNvs).
 
 **Heredity (Bayesian Networks)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/heredity):
 * The assignment is about using a bayesian network that models the relationships of getting a certain gene and make inferences about a population
 * We are given information about people, who their parents are, and whether they have a trait that is caused by a gene. The AI then infers the probability distribution for each person
 * The <code>heredity.py</code> has base probabilities for people who do not have parents listed.
 Using those base probabilities we can make inferences for their children based on the chances they inherited zero genes, one gene, or two genes and whether they exhibit a trait
-* You can fine the demonstration of how it works [here](https://www.youtube.com/watch?v=vHW-K2fDl-Y).
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=vHW-K2fDl-Y).
 
+<h2> Week 3: Optimization </h2>
 
+**Crossword (Constraint Satisfaction: Node & Arc Consistency with Backtracking Search)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/crossword)
+* The assignment is about solving a crossword using backtracking search that incorporates arc and node consistency
+* We are given three crossword grids and three word collections 
+* The <code>generate.py</code> consists of a class that implements Variable and Crossword classes from <code>crossword.py</code>
+    * It provides some base methods, but there rest (starting with <code>enforce_node_consistency</code>) had to be implemented
+* To implement the backtracking search, the assignment of words to grid variables first had to be consistent in nodes and edges (arcs)
+    * Node consistency is a unary constraint that requires all grid variables to only have potential words that are of the same length (grid variable of size 4 cannot fit word "Hello")
+    * Arc consistency is a binary constraint that requires all grid variable to only have potential words that are unique from other variables and are consistent in terms of characters (grid variable has to have one identical character with another variable if they share a grid cell)
+* This particular project was a pain in the ass because each class has numerous attributes, which makes it hard to navigate within data
+* You can find the demonstration of how it works [here]()
