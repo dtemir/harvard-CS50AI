@@ -43,6 +43,8 @@ I recommend paying better attention to the last function called <i>minimax</i>
 * Using logic, such as and (∧), or (∨), biconditional (↔), inference can be derived that has the answer
 * You can find the demonstration of how it works [here](https://youtu.be/iIk04q98ArE).
 
+![knights demo](demo/knights.gif)
+
 **Minesweeper (Propositional Logic & Inference)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/minesweeper):
 
 * The assignment is about solving minesweeper by drawing inference on every available state
@@ -50,6 +52,8 @@ I recommend paying better attention to the last function called <i>minimax</i>
 * By knowing that a set is a subset of another set, we can tell they share the number of mines, which means that we can eliminate potential cells from the set (which is inference)
 * It is important to keep trying to derive inferences from the available knowledge every time something new is given or found
 * You can find the demonstration of how it works [here](https://youtu.be/8DDpr0TY8Pw).
+
+![minesweeper](demo/minesweeper.gif)
 
 <h2> Week 2: Uncertainty</h2>
 
@@ -62,12 +66,16 @@ I recommend paying better attention to the last function called <i>minimax</i>
 * It is important to note that normalization of all the resulted vectors is required in <code>iterative_pagerank</code> as some overall probability might result in more than 1
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=LxuCrbKrNvs).
 
+![pagerank](demo/pagerank.gif)
+
 **Heredity (Bayesian Networks)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/heredity):
 * The assignment is about using a bayesian network that models the relationships of getting a certain gene and make inferences about a population
 * We are given information about people, who their parents are, and whether they have a trait that is caused by a gene. The AI then infers the probability distribution for each person
 * The <code>heredity.py</code> has base probabilities for people who do not have parents listed.
 Using those base probabilities we can make inferences for their children based on the chances they inherited zero genes, one gene, or two genes and whether they exhibit a trait
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=vHW-K2fDl-Y).
+
+![heredity](demo/heredity.gif)
 
 <h2> Week 3: Optimization </h2>
 
@@ -80,4 +88,6 @@ Using those base probabilities we can make inferences for their children based o
     * Node consistency is a unary constraint that requires all grid variables to only have potential words that are of the same length (grid variable of size 4 cannot fit word "Hello")
     * Arc consistency is a binary constraint that requires all grid variable to only have potential words that are unique from other variables and are consistent in terms of characters (grid variable has to have one identical character with another variable if they share a grid cell)
 * This particular project was a pain in the ass because each class has numerous attributes, which makes it hard to navigate within data
-* You can find the demonstration of how it works [here]()
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=wtokjci-d8g&ab_channel=DamirTemir)
+
+![crossword](demo/crossword.gif)
