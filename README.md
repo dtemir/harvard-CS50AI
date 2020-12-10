@@ -91,3 +91,19 @@ Using those base probabilities we can make inferences for their children based o
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=wtokjci-d8g&ab_channel=DamirTemir)
 
 ![crossword](demo/crossword.gif)
+
+<h2> Week 4: Learning </h2>
+
+**Shopping (KNN Classifier)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/shopping)
+* The assignment is about using the provided data to train a nearest-neighbor classifier that would let us know if the user is going to purchase
+* The provided data set has certain evidence attributes like <code>Administrative</code>, <code>Informational</code>, etc. Those attributes constitute <code>evidence</code> that we use to train model
+* The data also has <code>Revenue</code> which indicates if the user bought something
+* We first parse the data to buffer in <code>load_data</code>, then we use it to train model with scikit-learn's <code>KNeighborsClassifier</code>
+* Finally, we need to benchmark the model.
+  * For this we use the understanding of <code>sensitivity</code>, 
+  that is the proportion of actual positive results to accurately predicted results, and <code>specificity</code>, 
+  which is the proportion of actual negative results to accurately predicted results.
+  * In other words, we compare positive actual information to positive predicted values and negative actual information to negative predicted values.
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=BlXzYbwb_0U&ab_channel=DamirTemir)
+
+![shopping](demo/shopping.gif)
