@@ -14,6 +14,7 @@ I do so to keep a thorough documentation on concepts that each assignment employ
 * The solution is based on Breadth-First Search (BFS) because the task requires the shortest path between nodes
 * To implement the search, I used a Queue-based Frontier. The Frontier is filled with neighboring nodes that share the same parameter(movie)
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=0bksDFskiRM&t=1s&ab_channel=DamirTemir).
+* You can find my explanation on [**Medium**](https://damirtemir.medium.com/do-all-hollywood-actors-know-each-other-breadth-first-search-in-action-1b37df515928)
 
 ![alt text](demo/degrees.gif)
     
