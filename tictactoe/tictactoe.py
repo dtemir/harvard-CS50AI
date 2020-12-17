@@ -25,13 +25,13 @@ def player(board):
     """
     Xs = 0
     Os = 0
+    # simply iterate over the given board and calculate how many Xs and Os are there
     for y_axis in board:
         for x_axis in y_axis:
             if x_axis == X:
                 Xs += 1
             elif x_axis == O:
                 Os += 1
-
     if Xs <= Os:
         return X
     else:
@@ -101,9 +101,9 @@ def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-    if winner(board) == X or winner(board) == O:
+    if winner(board) == X or winner(board) == O:  # check if there is a winner
         return True
-    elif EMPTY not in board[0] and EMPTY not in board[1] and EMPTY not in board[2]:
+    elif EMPTY not in board[0] and EMPTY not in board[1] and EMPTY not in board[2]:  # check if no empty  cells are left
         return True
     else:
         return False
@@ -156,17 +156,23 @@ def minimax(board):
 
 
 def minvalue(board):
+    """
+    Returns the minimum value out of all maximum values
+    """
 
-    if terminal(board):
+    if terminal(board):  # if game over, just return the utility of state
         return utility(board)
 
-    max_value = math.inf
+    max_value = math.inf  # iterate over the available actions and return the minimum out of all maximums
     for action in actions(board):
         max_value = min(max_value, maxvalue(result(board, action)))
 
     return max_value
 
 def maxvalue(board):
+    """
+    Returns the maximum value out of all minimum values
+    """
 
     if terminal(board):
         return utility(board)
