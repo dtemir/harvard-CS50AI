@@ -89,7 +89,7 @@ Using those base probabilities we can make inferences for their children based o
     * Node consistency is a unary constraint that requires all grid variables to only have potential words that are of the same length (grid variable of size 4 cannot fit word "Hello")
     * Arc consistency is a binary constraint that requires all grid variable to only have potential words that are unique from other variables and are consistent in terms of characters (grid variable has to have one identical character with another variable if they share a grid cell)
 * This particular project was a pain in the ass because each class has numerous attributes, which makes it hard to navigate within data
-* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=wtokjci-d8g&ab_channel=DamirTemir)
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=wtokjci-d8g&ab_channel=DamirTemir).
 
 ![crossword](demo/crossword.gif)
 
@@ -100,11 +100,23 @@ Using those base probabilities we can make inferences for their children based o
 * The provided data set has certain evidence attributes like <code>Administrative</code>, <code>Informational</code>, etc. Those attributes constitute <code>evidence</code> that we use to train model
 * The data also has <code>Revenue</code> which indicates if the user bought something
 * We first parse the data to buffer in <code>load_data</code>, then we use it to train model with scikit-learn's <code>KNeighborsClassifier</code>
-* Finally, we need to benchmark the model.
+* Finally, we need to benchmark the model
   * For this we use the understanding of <code>sensitivity</code>, 
   that is the proportion of actual positive results to accurately predicted results, and <code>specificity</code>, 
-  which is the proportion of actual negative results to accurately predicted results.
+  which is the proportion of actual negative results to accurately predicted results
   * In other words, we compare positive actual information to positive predicted values and negative actual information to negative predicted values.
-* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=BlXzYbwb_0U&ab_channel=DamirTemir)
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=BlXzYbwb_0U&ab_channel=DamirTemir).
 
 ![shopping](demo/shopping.gif)
+
+<h2> Week 5: Neural Networks </h2>
+
+**Traffic (Convolutional Neural Network)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/traffic)
+* The assignment is about using provided images to train a neural network that classifies road signs
+* The images were provided by the [German Traffic Sign Recognition Benchmark](https://benchmark.ini.rub.de/?section=gtsrb&subsection=news)
+* To read the images, we use [OpenCV-Python](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html), and to build the network, we use [Tensorflow Keras](https://www.tensorflow.org/guide/keras/sequential_model)
+* To train the network as efficiently as possible, we applied the concepts of convolutional and pooling layers
+  * A convolutional layer serves to generalize the image by using a kernel matrix to filter the image into a fewer number of pixels
+  * A pooling layer serves the same purpose but through pooling one pixel out of its neighboring pixels to bring a more general view of the image. The particular type of pooling used is Max-Pooling that takes the highest pixel out of the square
+* The final structure of the neural network is [Convolutional, Max-Pooling, Convolutional, Max-Pooling, Flattening, Hidden Layer x3, Output Layer]
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=0dh9fd39h3Y&ab_channel=DamirTemir).
