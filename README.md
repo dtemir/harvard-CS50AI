@@ -197,11 +197,11 @@ Using those base probabilities we can make inferences for their children based o
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=BlXzYbwb_0U&ab_channel=DamirTemir).
 
 
-    $ python shopping.py shopping.csv
-    Correct: 4076
-    Incorrect: 856
-    True Positive Rate: 38.20%
-    True Negative Rate: 90.56%
+      $ python shopping.py shopping.csv
+      Correct: 4076
+      Incorrect: 856
+      True Positive Rate: 38.20%
+      True Negative Rate: 90.56%
 
 
 <h2> Week 5: Neural Networks </h2>
