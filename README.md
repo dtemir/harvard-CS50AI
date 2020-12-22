@@ -6,10 +6,12 @@ Following is just a little description about each of the assignments.
 I do so to keep a thorough documentation on concepts that each assignment employs.
 
 DISCLAIMER: This is internet, so I can't really tell you what to do. 
-However, please consider the fact that this a violation of the [edX Honor Code](https://www.edx.org/edx-terms-service.). 
-This repository is solely for the purpose of hacking around. 
+However, please consider the fact that this a violation of the [edX Honor Code](https://www.edx.org/edx-terms-service.) to just copy-paste the code. 
+So please consider the sole purpose of this repository to just hack around. 
+
 
 <h2>Week 0: Search</h2>
+
 
 **Degrees (BFS)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/degrees):
     
@@ -31,6 +33,7 @@ This repository is solely for the purpose of hacking around.
       2: Daniel Radcliffe and James McAvoy starred in Victor Frankenstein
       3: James McAvoy and Jennifer Lawrence starred in Dark Phoenix
     
+
 **Tic-Tac-Toe (Minimax)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/tictactoe):
 
 * The assignment is about writing an AI algorithm to play Tic-Tac-Toe optimally
@@ -43,9 +46,12 @@ I recommend paying better attention to the last function called <i>minimax</i>
     * The function determines which side AI plays for, and then finds the best optimal score that the AI can get
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=jgmtzfJTEgY&ab_channel=DamirTemir).
 
+
 ![tictactoe demo](demo/tictactoe.gif)
 
+
 <h2>Week 1: Knowledge</h2>
+
 
 **Knights (Propositional Logic & Inference)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/knights):
 
@@ -81,9 +87,12 @@ I recommend paying better attention to the last function called <i>minimax</i>
 * It is important to keep trying to derive inferences from the available knowledge every time something new is given or found
 * You can find the demonstration of how it works [here](https://youtu.be/8DDpr0TY8Pw).
 
+
 ![minesweeper](demo/minesweeper.gif)
 
+
 <h2> Week 2: Uncertainty</h2>
+
 
 **Pagerank (Markov Models)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/pagerank):
 
@@ -169,7 +178,9 @@ Using those base probabilities we can make inferences for their children based o
 
 <h2> Week 3: Optimization </h2>
 
+
 **Crossword (Constraint Satisfaction: Node & Arc Consistency with Backtracking Search)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/crossword)
+
 * The assignment is about solving a crossword using backtracking search that incorporates arc and node consistency
 * We are given three crossword grids and three word collections 
 * The <code>generate.py</code> consists of a class that implements Variable and Crossword classes from <code>crossword.py</code>
@@ -180,11 +191,15 @@ Using those base probabilities we can make inferences for their children based o
 * This particular project was a pain in the ass because each class has numerous attributes, which makes it hard to navigate within data
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=wtokjci-d8g&ab_channel=DamirTemir).
 
+
 ![crossword output](crossword/output.png)
+
 
 <h2> Week 4: Learning </h2>
 
+
 **Shopping (KNN Classifier)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/shopping)
+
 * The assignment is about using the provided data to train a nearest-neighbor classifier that would let us know if the user is going to purchase
 * The provided data set has certain evidence attributes like <code>Administrative</code>, <code>Informational</code>, etc. Those attributes constitute <code>evidence</code> that we use to train model
 * The data also has <code>Revenue</code> which indicates if the user bought something
@@ -206,7 +221,9 @@ Using those base probabilities we can make inferences for their children based o
 
 <h2> Week 5: Neural Networks </h2>
 
+
 **Traffic (Convolutional Neural Network)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/traffic)
+
 * The assignment is about using provided images to train a neural network that classifies road signs
 * The images were provided by the [German Traffic Sign Recognition Benchmark](https://benchmark.ini.rub.de/?section=gtsrb&subsection=news)
 * To read the images, we use [OpenCV-Python](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html), and to build the network, we use [Tensorflow Keras](https://www.tensorflow.org/guide/keras/sequential_model)
@@ -240,9 +257,12 @@ Using those base probabilities we can make inferences for their children based o
       497/497 [==============================] - 4s 8ms/step - loss: 0.1507 - accuracy: 0.9604
       331/331 - 1s - loss: 0.1485 - accuracy: 0.9654
 
+
 <h2> Week 6: Language </h2>
 
+
 **Parser (Context-Free Grammar)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/parser)
+
 * The assignment is about parsing a sentence to determine its structure
 * First, the task requires pre-processing the sentence to convert it into a list of words
 * Second, the task requires a set of context-free grammar rules on how sentences can be structured (the most challenging part)
@@ -280,7 +300,9 @@ Using those base probabilities we can make inferences for their children based o
       the palm
       my hand
 
+
 **Questions (Question Answering & Inverse Document Frequency)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/questions)
+
 * The assignment is about using the provided texts to answer questions based on the concept of Inverse Document Frequency
 * Given a number of txt files, we first parse them into the memory by tokenizing each sentence into a list of words
 * We then use the parsed words to compute IDF, which is a measure of how common or rare a word is across all files
