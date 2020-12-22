@@ -21,15 +21,15 @@ This repository is solely for the purpose of hacking around.
 * You can find my explanation on [**Medium**](https://damirtemir.medium.com/do-all-hollywood-actors-know-each-other-breadth-first-search-in-action-1b37df515928)
 
 
-    python degrees.py large
-    Loading data...
-    Data loaded.
-    Name: Emma Watson
-    Name: Jennifer Lawrence
-    3 degrees of separation.
-    1: Emma Watson and Daniel Radcliffe starred in Harry Potter and the Chamber of Secrets
-    2: Daniel Radcliffe and James McAvoy starred in Victor Frankenstein
-    3: James McAvoy and Jennifer Lawrence starred in Dark Phoenix
+      $ python degrees.py large
+      Loading data...
+      Data loaded.
+      Name: Emma Watson
+      Name: Jennifer Lawrence
+      3 degrees of separation.
+      1: Emma Watson and Daniel Radcliffe starred in Harry Potter and the Chamber of Secrets
+      2: Daniel Radcliffe and James McAvoy starred in Victor Frankenstein
+      3: James McAvoy and Jennifer Lawrence starred in Dark Phoenix
     
 **Tic-Tac-Toe (Minimax)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/tictactoe):
 
@@ -58,19 +58,19 @@ I recommend paying better attention to the last function called <i>minimax</i>
 * You can find the demonstration of how it works [here](https://youtu.be/iIk04q98ArE).
 
 
-    $ python puzzle.py 
-    Puzzle 0
-        A is a Knave
-    Puzzle 1
-        A is a Knave
-        B is a Knight
-    Puzzle 2
-        A is a Knave
-        B is a Knight
-    Puzzle 3
-        A is a Knight
-        B is a Knave
-        C is a Knight
+      $ python puzzle.py 
+      Puzzle 0
+          A is a Knave
+      Puzzle 1
+          A is a Knave
+          B is a Knight
+      Puzzle 2
+          A is a Knave
+          B is a Knight
+      Puzzle 3
+          A is a Knight
+          B is a Knave
+          C is a Knight
 
 
 **Minesweeper (Propositional Logic & Inference)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/minesweeper):
@@ -95,25 +95,25 @@ I recommend paying better attention to the last function called <i>minimax</i>
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=LxuCrbKrNvs).
 
 
-    $ python pagerank.py corpus2
-    PageRank Results from Sampling (n = 10000)
-      ai.html: 0.1888
-      algorithms.html: 0.1021
-      c.html: 0.1239
-      inference.html: 0.1327
-      logic.html: 0.0282
-      programming.html: 0.2290
-      python.html: 0.1232
-      recursion.html: 0.0720
-    PageRank Results from Iteration
-      ai.html: 0.1887
-      algorithms.html: 0.1066
-      c.html: 0.1239
-      inference.html: 0.1291
-      logic.html: 0.0264
-      programming.html: 0.2296
-      python.html: 0.1239
-      recursion.html: 0.0717
+      $ python pagerank.py corpus2
+      PageRank Results from Sampling (n = 10000)
+        ai.html: 0.1888
+        algorithms.html: 0.1021
+        c.html: 0.1239
+        inference.html: 0.1327
+        logic.html: 0.0282
+        programming.html: 0.2290
+        python.html: 0.1232
+        recursion.html: 0.0720
+      PageRank Results from Iteration
+        ai.html: 0.1887
+        algorithms.html: 0.1066
+        c.html: 0.1239
+        inference.html: 0.1291
+        logic.html: 0.0264
+        programming.html: 0.2296
+        python.html: 0.1239
+        recursion.html: 0.0717
 
 
 **Heredity (Bayesian Networks)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/heredity):
@@ -124,47 +124,47 @@ Using those base probabilities we can make inferences for their children based o
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=vHW-K2fDl-Y).
 
 
-    $ python heredity.py data/family2.csv 
-    Arthur:
-      Gene:
-        2: 0.0147
-        1: 0.0344
-        0: 0.9509
-      Trait:
-        True: 0.0000
-        False: 1.0000
-    Hermione:
-      Gene:
-        2: 0.0608
-        1: 0.1203
-        0: 0.8189
-      Trait:
-        True: 0.0000
-        False: 1.0000
-    Molly:
-      Gene:
-        2: 0.0404
-        1: 0.0744
-        0: 0.8852
-      Trait:
-        True: 0.0768
-        False: 0.9232
-    Ron:
-      Gene:
-        2: 0.0043
-        1: 0.2149
-        0: 0.7808
-      Trait:
-        True: 0.0000
-        False: 1.0000
-    Rose:
-      Gene:
-        2: 0.0088
-        1: 0.7022
-        0: 0.2890
-      Trait:
-        True: 1.0000
-        False: 0.0000
+      $ python heredity.py data/family2.csv 
+      Arthur:
+        Gene:
+          2: 0.0147
+          1: 0.0344
+          0: 0.9509
+        Trait:
+          True: 0.0000
+          False: 1.0000
+      Hermione:
+        Gene:
+          2: 0.0608
+          1: 0.1203
+          0: 0.8189
+        Trait:
+          True: 0.0000
+          False: 1.0000
+      Molly:
+        Gene:
+          2: 0.0404
+          1: 0.0744
+          0: 0.8852
+        Trait:
+          True: 0.0768
+          False: 0.9232
+      Ron:
+        Gene:
+          2: 0.0043
+          1: 0.2149
+          0: 0.7808
+        Trait:
+          True: 0.0000
+          False: 1.0000
+      Rose:
+        Gene:
+          2: 0.0088
+          1: 0.7022
+          0: 0.2890
+        Trait:
+          True: 1.0000
+          False: 0.0000
 
 
 <h2> Week 3: Optimization </h2>
@@ -217,28 +217,28 @@ Using those base probabilities we can make inferences for their children based o
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=0dh9fd39h3Y&ab_channel=DamirTemir).
 
     
-    $ python traffic.py gtsrb/
-    Epoch 1/10
-    497/497 [==============================] - 3s 7ms/step - loss: 2.8686 - accuracy: 0.3052 
-    Epoch 2/10
-    497/497 [==============================] - 4s 7ms/step - loss: 1.1733 - accuracy: 0.6533
-    Epoch 3/10
-    497/497 [==============================] - 4s 8ms/step - loss: 0.6370 - accuracy: 0.8115
-    Epoch 4/10
-    497/497 [==============================] - 4s 8ms/step - loss: 0.4136 - accuracy: 0.8793
-    Epoch 5/10
-    497/497 [==============================] - 4s 8ms/step - loss: 0.2983 - accuracy: 0.9171
-    Epoch 6/10
-    497/497 [==============================] - 4s 8ms/step - loss: 0.2715 - accuracy: 0.9251
-    Epoch 7/10
-    497/497 [==============================] - 4s 8ms/step - loss: 0.2239 - accuracy: 0.9393
-    Epoch 8/10
-    497/497 [==============================] - 4s 8ms/step - loss: 0.1857 - accuracy: 0.9497
-    Epoch 9/10
-    497/497 [==============================] - 4s 8ms/step - loss: 0.1619 - accuracy: 0.9581
-    Epoch 10/10
-    497/497 [==============================] - 4s 8ms/step - loss: 0.1507 - accuracy: 0.9604
-    331/331 - 1s - loss: 0.1485 - accuracy: 0.9654
+      $ python traffic.py gtsrb/
+      Epoch 1/10
+      497/497 [==============================] - 3s 7ms/step - loss: 2.8686 - accuracy: 0.3052 
+      Epoch 2/10
+      497/497 [==============================] - 4s 7ms/step - loss: 1.1733 - accuracy: 0.6533
+      Epoch 3/10
+      497/497 [==============================] - 4s 8ms/step - loss: 0.6370 - accuracy: 0.8115
+      Epoch 4/10
+      497/497 [==============================] - 4s 8ms/step - loss: 0.4136 - accuracy: 0.8793
+      Epoch 5/10
+      497/497 [==============================] - 4s 8ms/step - loss: 0.2983 - accuracy: 0.9171
+      Epoch 6/10
+      497/497 [==============================] - 4s 8ms/step - loss: 0.2715 - accuracy: 0.9251
+      Epoch 7/10
+      497/497 [==============================] - 4s 8ms/step - loss: 0.2239 - accuracy: 0.9393
+      Epoch 8/10
+      497/497 [==============================] - 4s 8ms/step - loss: 0.1857 - accuracy: 0.9497
+      Epoch 9/10
+      497/497 [==============================] - 4s 8ms/step - loss: 0.1619 - accuracy: 0.9581
+      Epoch 10/10
+      497/497 [==============================] - 4s 8ms/step - loss: 0.1507 - accuracy: 0.9604
+      331/331 - 1s - loss: 0.1485 - accuracy: 0.9654
 
 <h2> Week 6: Language </h2>
 
@@ -255,30 +255,30 @@ Using those base probabilities we can make inferences for their children based o
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=Gl7HQMmSR1A&ab_channel=DamirTemir)
 
 
-    $ python parser.py sentences/10.txt 
-                  S                                                             
-      ____________|________________________                                      
-     |                                    Pred                                  
-     |                                     |                                     
-     |                                     VP                                   
-     |    _________________________________|________________                     
-     |   |               NP                                 |                   
-     |   |    ___________|____                              |                    
-     |   |   |                AP                            PP                  
-     |   |   |     ___________|___                   _______|________            
-     |   |   |    |               AP                PP               PP         
-     |   |   |    |       ________|___           ___|___          ___|___        
-     NP  |   |    |      |            AP        |       NP       |       NP     
-     |   |   |    |      |         ___|____     |    ___|___     |    ___|___    
-     N   V  Det  Adj    Adj      Adj       N    P  Det      N    P  Det      N  
-     |   |   |    |      |        |        |    |   |       |    |   |       |   
-     i  had  a  little moist     red     paint  in the     palm  of  my     hand
-    
-    Noun Phrase Chunks
-    i
-    a little moist red paint
-    the palm
-    my hand
+      $ python parser.py sentences/10.txt 
+                    S                                                             
+        ____________|________________________                                      
+       |                                    Pred                                  
+       |                                     |                                     
+       |                                     VP                                   
+       |    _________________________________|________________                     
+       |   |               NP                                 |                   
+       |   |    ___________|____                              |                    
+       |   |   |                AP                            PP                  
+       |   |   |     ___________|___                   _______|________            
+       |   |   |    |               AP                PP               PP         
+       |   |   |    |       ________|___           ___|___          ___|___        
+       NP  |   |    |      |            AP        |       NP       |       NP     
+       |   |   |    |      |         ___|____     |    ___|___     |    ___|___    
+       N   V  Det  Adj    Adj      Adj       N    P  Det      N    P  Det      N  
+       |   |   |    |      |        |        |    |   |       |    |   |       |   
+       i  had  a  little moist     red     paint  in the     palm  of  my     hand
+      
+      Noun Phrase Chunks
+      i
+      a little moist red paint
+      the palm
+      my hand
 
 **Questions (Question Answering & Inverse Document Frequency)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/questions)
 * The assignment is about using the provided texts to answer questions based on the concept of Inverse Document Frequency
@@ -290,14 +290,14 @@ Using those base probabilities we can make inferences for their children based o
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=f6jORS9X5ng&ab_channel=DamirTemir)
 
 
-    $ python questions.py corpus
-    Query: What are the types of supervised learning?
-    Types of supervised learning algorithms include Active learning , classification and regression.
-    
-    $ python questions.py corpus
-    Query: When was Python 3.0 released?
-    Python 3.0 was released on 3 December 2008.
-    
-    $ python questions.py corpus
-    Query: How do neurons connect in a neural network?
-    Neurons of one layer connect only to neurons of the immediately preceding and immediately following layers.
+      $ python questions.py corpus
+      Query: What are the types of supervised learning?
+      Types of supervised learning algorithms include Active learning , classification and regression.
+      
+      $ python questions.py corpus
+      Query: When was Python 3.0 released?
+      Python 3.0 was released on 3 December 2008.
+      
+      $ python questions.py corpus
+      Query: How do neurons connect in a neural network?
+      Neurons of one layer connect only to neurons of the immediately preceding and immediately following layers.
