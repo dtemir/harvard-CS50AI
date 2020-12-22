@@ -7,7 +7,7 @@ I do so to keep a thorough documentation on concepts that each assignment employ
 
 DISCLAIMER: This is internet, so I can't really tell you what to do. 
 However, please consider the fact that this a violation of the [edX Honor Code](https://www.edx.org/edx-terms-service.) to just copy-paste the code. 
-So please consider the sole purpose of this repository to just hack around. 
+So please consider the sole purpose of this repository is to just hack around. 
 
 
 <h2>Week 0: Search</h2>
@@ -41,9 +41,11 @@ So please consider the sole purpose of this repository to just hack around.
 * The solution is based on Minimax decision rule which perfectly works for games that clash two opponents against each other
     * The algorithm is all about calculating the best utility out of all possible solutions. 
     * The algorithm relies on calculating prospective steps that the opponent might take
+
 * The <code>tictactoe.py</code> file (where the solution lies) consists of many minor functions that construct the game of Tic-Tac-Toe (finding out who is a winner, etc.)
 I recommend paying better attention to the last function called <i>minimax</i>
     * The function determines which side AI plays for, and then finds the best optimal score that the AI can get
+
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=jgmtzfJTEgY&ab_channel=DamirTemir).
 
 
@@ -57,9 +59,10 @@ I recommend paying better attention to the last function called <i>minimax</i>
 
 * The assignment is about solving puzzles using propositional logic
 * Using given module <code>logic.py</code>, the puzzles first need to be presented
-   * We first need to define base knowledge in each of the knowledge bases, such as that knaves only lie and knight only tell the truth
-   * Then, given the statements of symbols (e.g. Symbol A says "We're both knaves" and Symbol B says nothing), we need to represent them using logic
+    * We first need to define base knowledge in each of the knowledge bases, such as that knaves only lie and knight only tell the truth
+    * Then, given the statements of symbols (e.g. Symbol A says "We're both knaves" and Symbol B says nothing), we need to represent them using logic
         *  This case involves using biconditionals to show that if A is a knight, his words are true and if not, they are lies
+
 * Using logic, such as and (∧), or (∨), biconditional (↔), inference can be derived that has the answer
 * You can find the demonstration of how it works [here](https://youtu.be/iIk04q98ArE).
 
@@ -100,6 +103,7 @@ I recommend paying better attention to the last function called <i>minimax</i>
 * The <code>pagerank.py</code> has two functions: <code>sample_pagerank</code> and <code>iterative_pagerank</code>
     * Random Surfer Model (<code>sample_pagerank</code>) is about using transition models to represent a state in Markov Chain and choose among its links to pages at random
     * Iterative Algorithm (<code>iterative_pagerank</code>) is about using a recursive mathematical expression to see what the pagerank would be
+
 * It is important to note that normalization of all the resulted vectors is required in <code>iterative_pagerank</code> as some overall probability might result in more than 1
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=LxuCrbKrNvs).
 
@@ -185,9 +189,11 @@ Using those base probabilities we can make inferences for their children based o
 * We are given three crossword grids and three word collections 
 * The <code>generate.py</code> consists of a class that implements Variable and Crossword classes from <code>crossword.py</code>
     * It provides some base methods, but there rest (starting with <code>enforce_node_consistency</code>) had to be implemented
+  
 * To implement the backtracking search, the assignment of words to grid variables first had to be consistent in nodes and edges (arcs)
     * Node consistency is a unary constraint that requires all grid variables to only have potential words that are of the same length (grid variable of size 4 cannot fit word "Hello")
     * Arc consistency is a binary constraint that requires all grid variable to only have potential words that are unique from other variables and are consistent in terms of characters (grid variable has to have one identical character with another variable if they share a grid cell)
+
 * This particular project was a pain in the ass because each class has numerous attributes, which makes it hard to navigate within data
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=wtokjci-d8g&ab_channel=DamirTemir).
 
@@ -205,10 +211,11 @@ Using those base probabilities we can make inferences for their children based o
 * The data also has <code>Revenue</code> which indicates if the user bought something
 * We first parse the data to buffer in <code>load_data</code>, then we use it to train model with scikit-learn's <code>KNeighborsClassifier</code>
 * Finally, we need to benchmark the model
-  * For this we use the understanding of <code>sensitivity</code>, 
+    * For this we use the understanding of <code>sensitivity</code>, 
   that is the proportion of actual positive results to accurately predicted results, and <code>specificity</code>, 
   which is the proportion of actual negative results to accurately predicted results
-  * In other words, we compare positive actual information to positive predicted values and negative actual information to negative predicted values.
+    * In other words, we compare positive actual information to positive predicted values and negative actual information to negative predicted values.
+
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=BlXzYbwb_0U&ab_channel=DamirTemir).
 
 
@@ -217,6 +224,74 @@ Using those base probabilities we can make inferences for their children based o
       Incorrect: 856
       True Positive Rate: 38.20%
       True Negative Rate: 90.56%
+
+
+**Nim (Reinforcement Learning)** [see directory](https://github.com/dtemir/harvard-CS50AI/tree/master/nim)
+
+* The assignment is about training a model using Reinforcement Learning, 
+  meaning AI will repeatedly play against itself and either reward itself for the right action or punish itself for the wrong action
+* In particular, the concept used is Q-Learning where losing results in -1 and winning results in 1
+    * The formula is <code>Q(s, a) <- Q(s, a) + alpha * (new value estimate - old value estimate)</code>, 
+      where <code>Q(s, a)</code> means a reward for the state <code>s</code> and action <code>a</code>
+    * <code>alpha</code> is the learning rate, which tells whether we need to make exploratory actions or not
+  
+* As you can see from the example below, it does not always result in a perfect model that never loses as it does not explore 
+all possible states like Minimax, but it is much less computationally demanding
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=A2tNMWTcVFM&ab_channel=DamirTemir)  
+      
+
+      $ python play.py
+      Playing training game 1
+      Playing training game 2
+      Playing training game 3
+      ...
+      Playing training game 9999
+      Playing training game 10000
+      Done training
+      
+      Piles:
+      Pile 0: 1
+      Pile 1: 3
+      Pile 2: 5
+      Pile 3: 7
+      
+      Your Turn
+      Choose Pile: 1
+      Choose Count: 3
+      
+      Piles:
+      Pile 0: 1
+      Pile 1: 0
+      Pile 2: 5
+      Pile 3: 7
+      
+      AI's Turn
+      AI chose to take 7 from pile 3.
+      
+      Piles:
+      Pile 0: 1
+      Pile 1: 0
+      Pile 2: 5
+      Pile 3: 0
+      
+      Your Turn
+      Choose Pile: 2
+      Choose Count: 5
+      
+      Piles:
+      Pile 0: 1
+      Pile 1: 0
+      Pile 2: 0
+      Pile 3: 0
+      
+      AI's Turn
+      AI chose to take 1 from pile 0.
+      
+      GAME OVER
+      Winner is Human
+      # I actually won here, which never happened to me before
+      # But it shows that reinforcement learning is not ideal
+      # as the model could not train for ALL possible outcomes
 
 
 <h2> Week 5: Neural Networks </h2>
@@ -228,8 +303,9 @@ Using those base probabilities we can make inferences for their children based o
 * The images were provided by the [German Traffic Sign Recognition Benchmark](https://benchmark.ini.rub.de/?section=gtsrb&subsection=news)
 * To read the images, we use [OpenCV-Python](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html), and to build the network, we use [Tensorflow Keras](https://www.tensorflow.org/guide/keras/sequential_model)
 * To train the network as efficiently as possible, we applied the concepts of convolutional and pooling layers
-  * A convolutional layer serves to generalize the image by using a kernel matrix to filter the image into a fewer number of pixels
-  * A pooling layer serves the same purpose but through pooling one pixel out of its neighboring pixels to bring a more general view of the image. The particular type of pooling used is Max-Pooling that takes the highest pixel out of the square
+    * A convolutional layer serves to generalize the image by using a kernel matrix to filter the image into a fewer number of pixels
+    * A pooling layer serves the same purpose but through pooling one pixel out of its neighboring pixels to bring a more general view of the image. The particular type of pooling used is Max-Pooling that takes the highest pixel out of the square
+
 * The final structure of the neural network is [Convolutional, Max-Pooling, Convolutional, Max-Pooling, Flattening, Hidden Layer x3, Output Layer]
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=0dh9fd39h3Y&ab_channel=DamirTemir).
 
@@ -266,12 +342,13 @@ Using those base probabilities we can make inferences for their children based o
 * The assignment is about parsing a sentence to determine its structure
 * First, the task requires pre-processing the sentence to convert it into a list of words
 * Second, the task requires a set of context-free grammar rules on how sentences can be structured (the most challenging part)
-  * Building a set of rules that would let us to parse all sentences took me a few hours
-  * I was able to derive that all 10 sentences divide into two types,
-    * a sentence that starts with a noun phrase and ends with a verb (adverbs can be after or before the verb)
-    * a sentence that starts with another sentence (the first type) and ends with a conjunction in front of a verb or another sentence
+    * Building a set of rules that would let us to parse all sentences took me a few hours
+    * I was able to derive that all 10 sentences divide into two types,
+        * a sentence that starts with a noun phrase and ends with a verb (adverbs can be after or before the verb)
+        * a sentence that starts with another sentence (the first type) and ends with a conjunction in front of a verb or another sentence
+
 * Third, the task requires a list of noun phrase chunks, which is a noun phrase that does not have other noun phrase within it
-  * The context-free grammar rules used in our case do not allow such cases, so it is reasonable to just count the number of noun phrases ([nltk.tree](https://www.nltk.org/_modules/nltk/tree.html) documentation is really helpful)
+    * The context-free grammar rules used in our case do not allow such cases, so it is reasonable to just count the number of noun phrases ([nltk.tree](https://www.nltk.org/_modules/nltk/tree.html) documentation is really helpful)
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=Gl7HQMmSR1A&ab_channel=DamirTemir)
 
 
@@ -306,8 +383,9 @@ Using those base probabilities we can make inferences for their children based o
 * The assignment is about using the provided texts to answer questions based on the concept of Inverse Document Frequency
 * Given a number of txt files, we first parse them into the memory by tokenizing each sentence into a list of words
 * We then use the parsed words to compute IDF, which is a measure of how common or rare a word is across all files
-* When the user asks a question, the question is tokenized and each word is used to determine which of the files contains the answer by comparing IDFs
-  * Having determined the file, the sentences in the file are then ranked according to their highest IDF value as it related to the words in the question
+* When the user asks a question, the question is tokenized and each word is used to determine which of the files contains the answer by comparing IDF
+    * Having determined the file, the sentences in the file are then ranked according to their highest IDF value as it related to the words in the question
+
 * This was a fun project, and it deserves some more attention after the completion of the course. 
 * You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=f6jORS9X5ng&ab_channel=DamirTemir)
 
