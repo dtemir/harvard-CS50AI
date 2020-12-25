@@ -19,8 +19,8 @@ So please consider the sole purpose of this repository is to just hack around.
 * The database comes from IMDb, and the task is to tell how one actor is connected to another through their common movie casts
 * The solution is based on Breadth-First Search (BFS) because the task requires the shortest path between nodes
 * To implement the search, I used a Queue-based Frontier. The Frontier is filled with neighboring nodes that share the same parameter(movie)
-* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=0bksDFskiRM&t=1s&ab_channel=DamirTemir).
-* You can find my explanation on [**Medium**](https://damirtemir.medium.com/do-all-hollywood-actors-know-each-other-breadth-first-search-in-action-1b37df515928)
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=0bksDFskiRM&t=1s&ab_channel=DamirTemir)
+* You can find my explanation on [**Medium**](https://damirtemir.medium.com/do-all-hollywood-actors-know-each-other-breadth-first-search-in-action-1b37df515928).
 
 
       $ python degrees.py large
@@ -46,7 +46,9 @@ So please consider the sole purpose of this repository is to just hack around.
 I recommend paying better attention to the last function called <i>minimax</i>
     * The function determines which side AI plays for, and then finds the best optimal score that the AI can get
 
-* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=jgmtzfJTEgY&ab_channel=DamirTemir).
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=jgmtzfJTEgY&ab_channel=DamirTemir)
+* You can find my explanation on [**Medium**](https://medium.com/analytics-vidhya/minimax-algorithm-in-tic-tac-toe-adversarial-search-example-702c7c1030eb).
+
 
 
 ![tictactoe demo](demo/tictactoe.gif)
@@ -237,7 +239,7 @@ Using those base probabilities we can make inferences for their children based o
   
 * As you can see from the example below, it does not always result in a perfect model that never loses as it does not explore 
 all possible states like Minimax, but it is much less computationally demanding
-* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=A2tNMWTcVFM&ab_channel=DamirTemir)  
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=A2tNMWTcVFM&ab_channel=DamirTemir).  
       
 
       $ python play.py
@@ -349,7 +351,7 @@ all possible states like Minimax, but it is much less computationally demanding
 
 * Third, the task requires a list of noun phrase chunks, which is a noun phrase that does not have other noun phrase within it
     * The context-free grammar rules used in our case do not allow such cases, so it is reasonable to just count the number of noun phrases ([nltk.tree](https://www.nltk.org/_modules/nltk/tree.html) documentation is really helpful)
-* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=Gl7HQMmSR1A&ab_channel=DamirTemir)
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=Gl7HQMmSR1A&ab_channel=DamirTemir).
 
 
       $ python parser.py sentences/10.txt 
@@ -387,7 +389,7 @@ all possible states like Minimax, but it is much less computationally demanding
     * Having determined the file, the sentences in the file are then ranked according to their highest IDF value as it related to the words in the question
 
 * This was a fun project, and it deserves some more attention after the completion of the course. 
-* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=f6jORS9X5ng&ab_channel=DamirTemir)
+* You can find the demonstration of how it works [here](https://www.youtube.com/watch?v=f6jORS9X5ng&ab_channel=DamirTemir).
 
 
       $ python questions.py corpus
