@@ -1,6 +1,7 @@
 # harvard-CS50AI
 This repository serves as a way for me to document my experience
 with the [CS50 Artificial Intelligence class](https://cs50.harvard.edu/ai/2020/).
+Here is my review of the course on **[Medium](https://damirtemir.medium.com/how-to-break-into-ai-harvard-cs50ai-introduction-to-artificial-intelligence-course-review-fe14b78e6575)**
 
 Following is just a little description about each of the assignments.
 I do so to keep a thorough documentation on concepts that each assignment employs.
