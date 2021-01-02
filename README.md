@@ -10,6 +10,7 @@ DISCLAIMER: This is internet, so I can't really tell you what to do.
 However, please consider the fact that this a violation of the [edX Honor Code](https://www.edx.org/edx-terms-service.) to just copy-paste the code. 
 So please consider the sole purpose of this repository is to just hack around. 
 
+![Certificate](demo/CS50AI-1.png)
 
 <h2>Week 0: Search</h2>
 
